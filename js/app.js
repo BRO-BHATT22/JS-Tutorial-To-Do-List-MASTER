@@ -1,18 +1,31 @@
-// CODE EXPLAINED channel
+const clear = document.querySelector(".clear");
+const dateElement = document.getElementById("date");
 const list = document.getElementById("list");
+const input = document.getElementById("input");
 
-function addToDo(toDo) {
-    const text = `<li class="item">
-    <i class="co fa fa-circle-thin" job="complete"></li>
-<p class="text "> ${toDo} </p>
-<i class ="de fa fa-trash-o" job="delete"></i>
-</li>`
+//Classes names
+const CHECK = "fa-check-circle";
+const UNCHECK = "fa-circle-thin";
+const LINE_THROUGH = "lineThrough";
 
+// Shows todays date
 
-const position = "beforeend";
+const options = { weekday: "long", month: "short", day: "numeric" };
+const today = new Date();
 
-list.insertAdjacentHTML(position, text);
+dateElement.innerHTML = today.toLocaleDateString("en-US", options);
+
+// add to do function
+
+function addToDo(toDo){
+    const item = `
+
+    <i class="fa fa-check-circle co" job="complete" id="0"></i>
+    <p class="text lineThrough">$</p>
+    <i class="fa fa-trash-o de" jobs="delete" id="0"></i>
+
+                `;
+    const position = "beforeend";
+    list.insertAdjacentHTML(position, item);
 
 }
-
-addToDo("Drink Coffee");
